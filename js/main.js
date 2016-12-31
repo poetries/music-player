@@ -10,7 +10,7 @@ $(function(){
 	});
 	
 	//background
-	$(".skin_btn").on("click",function(){
+	$(".skin_btn,.pic_comm").on("click",function(){
 		$(".skin_content").slideToggle(500);
 		
 	});
@@ -19,8 +19,13 @@ $(function(){
 	});
 	$(".skin_title span").on("click",function(){
 		var index = $(this).index();
-		console.log(index);
 		$(".skin_img .pic_comm").eq(index).addClass("active").siblings().removeClass("active");
+	});
+
+	$(".pic_comm img").click(function(){
+		var picUrl = $(this).attr("src");
+		
+		$("body").css({"background":"url("+picUrl+")"+" no-repeat"});
 	});
 	
 })
