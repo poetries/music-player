@@ -71,5 +71,8 @@ $(function(){
 	//love 
 	$("#love").click(function(){
 		$(this).toggleClass("love");
+	});
+	$("#play").click(function(){
+		$(this).find(".play_btn").toggleClass("active");
 	})
 });
