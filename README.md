@@ -1,2 +1,7 @@
-# music-player
-HTML5  一个音乐播放器
+### 音乐播放器
+
+Demo
+---
+
+- [在线演示](http://blog.poetries.top/music-player)
+
