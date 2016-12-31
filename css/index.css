@@ -96,20 +96,77 @@ body {
     top: 80px;
     left: 430px;
     width: 390px;
-    height: 570px;
+    height: 500px;
     box-shadow: 0 0 10px #ccc;
     background: #fff;
 }
-.music .menu .menu_aside_content {
+/* 滚动条样式 */
+.music .menu .scrollCon {
     position: absolute;
     top: 0px;
     left: -281px;
     width: 280px;
-    height: 570px;
+    height: 500px;
     display: none;
     background: rgba(139,143,135,0.5);
+	overflow: hidden;
+}
+
+.scrollText {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 280px;
+    height: auto;
+}
+.scrollText li {
+    position: relative;
+    text-indent: 22px;
+    line-height: 37px;
+    border-bottom: 1px dashed #666;
+    cursor: pointer;
+    font-family: "微软雅黑";
+    color: rgba(0, 0, 0, 0.89);
+}
+.scrollText li:before {
+	content: "";
+	margin-top: 2px;
+	display: block;
+	position: absolute;
+	top: 15px;
+	left: 13px;
+	width: 5px;
+	height: 5px;
+	border-radius: 10px;
+	background-color: #9a3e3e;
 	
 }
+.scrollText .singer{
+	margin-left: 100px;
+}
+.scrollText .song {
+	margin-left: 10px;
+}
+.scrollBar {
+    width: 10px;
+    height: 500px;
+    background: #000;
+    opacity: .7;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.scrollBar .scrollBtn {
+	width: 10px;
+    height: 40px;
+    background: orangered;
+    opacity:.9;
+    position: absolute;
+    top:0px;
+    right: 0px;
+    cursor: pointer;
+}
+
 .music .menu  .menu_btn .iconfont{
 	display: inline-block;
 	padding-left: 8px;
@@ -122,7 +179,7 @@ body {
     top: -1px;
     left: 391px;
     width: 424px;
-    height: 571px;
+    height: 500px;
     display: none;
     background: rgba(139,143,135,0.5);
 }
@@ -134,4 +191,97 @@ body {
     font-size: 21px;
     color: palevioletred;
     cursor: pointer;
+}
+
+/* music-content*/
+.singer_pic {
+	position: relative;
+	width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: auto;
+    border: 10px dashed rgba(125, 125, 116, 0.05);
+}
+.singer_pic img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 50%;
+}
+.song_info {
+	margin-top: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.song_info .song_title {
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+	font-family: "微软雅黑";
+}
+.song_info .song_author {
+	color: rgba(0,0,0,.7);
+}
+.music_func {
+	margin-left: 21px;
+    margin-top: 30px;
+}
+.music_func .love {
+	color: #f00;
+}
+
+.music_func span{
+    display: inline-block;
+    font-size: 26px;
+    margin-left: 63px;
+    cursor: pointer;
+}
+.progress {
+	margin-top: 15px;
+}
+.progress .pro_bar {
+	display: inline-block;
+	width: 250px;
+	height: 3px;
+	margin-left: 20px;
+	background: #bebebe;
+}
+.progress .pro_bar .pro_bar_bg {
+	display: block;
+	width: 40px;/*待修改*/
+	height: 3px;
+	background: rgb(0,255,66);
+}
+.progress .curTime {
+	float: left;
+	margin-left: 11px;
+	margin-top: 2px;
+}
+.progress .allTime {
+	float: right;
+	margin-top: 2px;
+	margin-right: 8px;
+}
+.progress .pro_bar_btn {
+	display: block;
+    width: 6px;
+    height: 6px;
+    margin-top: -5px;
+    background: url(../images/circle.gif);
+}
+.music_play {
+	margin-top: 15px;
+}
+.music_play span{
+	display: inline-block;
+	margin-left:69px;
+	cursor: pointer;
+}
+.music_play .prev {
+	margin-left: 91px;
+}
+.music_play span .iconfont {
+	font-size: 20px;
 }
