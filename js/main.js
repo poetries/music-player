@@ -9,4 +9,18 @@ $(function(){
 		
 	});
 	
+	//background
+	$(".skin_btn").on("click",function(){
+		$(".skin_content").slideToggle(500);
+		
+	});
+	$(".skin_title").find("span").on("click",function(){
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+	$(".skin_title span").on("click",function(){
+		var index = $(this).index();
+		console.log(index);
+		$(".skin_img .pic_comm").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	
 })
