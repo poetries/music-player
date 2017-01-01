@@ -319,3 +319,11 @@ body {
 .music_play span .iconfont {
 	font-size: 20px;
 }
+#canvas {
+	position: absolute;
+	bottom: -21px;
+	left: 100px;
+	width: 1100px;
+	height: 80px;
+
+}
