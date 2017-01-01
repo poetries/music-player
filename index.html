@@ -11,6 +11,7 @@
 		<script src="lib/html5shiv-printshiv.min.js" ></script>
 		<script src="js/scroll.js" ></script>
 		<script src="js/bg-menu.js" ></script>
+		<script src="data/data.js" ></script>
 		<script src="js/main.js" ></script>
 	</head>
 	<body>
@@ -191,12 +192,12 @@
 				</ul>
 			</div>
 			<div class="music_content">
-				<div class="singer_pic">
+				<div class="singer_pic" id="singer_pic">
 					<img src="images/singer1.jpg"/>
 				</div>
 				<div class="song_info">
-					<p class="song_title">海阔天空</p>
-					<p class="song_author">Beyond</p>
+					<p class="song_title" id="song_title">海阔天空</p>
+					<p class="song_author" id="song_author">Beyond</p>
 				</div>
 				<div class="music_func">
 					<span class="iconfont music_func_item" id="love" >&#xe611;</span>
@@ -218,21 +219,21 @@
 					<span class="allTime">00:00</span>
 				</div>
 				<div class="music_play">
-					<span class="prev">
+					<span class="prev" id="prev">
 						<i class="iconfont">&#xe685;</i>
 					</span>
 					<span class="play" id="play">
 						<i class="iconfont play_btn active">&#xe62f;</i>
 						<i class="iconfont play_btn">&#x3442;</i>
 					</span>
-					<span class="next">
+					<span class="next" id="next">
 						<i class="iconfont">&#xe69d;</i>
 					</span>
 				</div>
 			</div>
 		</div>
 		<canvas id="canvas" ></canvas>
-		<audio src="data/1.mp3" id="audio"></audio>
+		<audio src="data/4.mp3" id="audio"></audio>
 		
 	</body>
 </html>

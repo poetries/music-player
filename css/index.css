@@ -210,7 +210,22 @@ body {
 	bottom: 0;
 	margin: auto;
 	border-radius: 50%;
+	width: 200px;
+	height: 200px;
 }
+.singer_pic img.rorate {
+	animation: rot 2.5s linear infinite;
+}
+/* 歌手旋转*/
+@keyframes rot {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .song_info {
 	margin-top: 30px;
 	line-height: 30px;
@@ -321,9 +336,9 @@ body {
 }
 #canvas {
 	position: absolute;
-	bottom: -21px;
-	left: 100px;
-	width: 1100px;
+	bottom: 0px;
+	left: 320px;
+	width: 600px;
 	height: 80px;
 
 }
