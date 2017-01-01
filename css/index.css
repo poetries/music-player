@@ -370,3 +370,35 @@ body {
 	height: 80px;
 
 }
+
+/* 歌词 */
+.m_lyric{
+	width: 423px;
+    height: 498px;
+    float: left;
+    box-shadow: 0 0 5px #ddd;
+    margin-left: 0px;
+    margin-top: 3px;
+}
+.m_lyric h2{
+    height: 30px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    box-shadow: 0 0 5px #ddd;
+}
+.m_lyric #lrcCon{
+	margin-top:20px;
+	transition:0.5s linear;
+}
+.m_lyric .content{
+	height:370px;
+	overflow:hidden;
+}
+.m_lyric #lrcCon p{
+	text-align:center;
+	line-height:20px;
+	color:#ccc;
+}

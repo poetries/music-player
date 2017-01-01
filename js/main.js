@@ -63,12 +63,16 @@ window.onload = function(){
 		song_author.innerHTML = data[n].singer;
 		
 		//切换的时候更改样式
-		audio.play();
+		
 		oBtnPlay.style.backgroundImage = "url(images/zanhover.png)";
 		love.setAttribute("class","iconfont music_func_item");
 		download.setAttribute("class","iconfont music_func_item");
 		singer_pic.className = "rorate";
+		lrcCon.style.marginTop = 20 + "px";
+		currentLrc();
 		load();
+		audio.play();
+		
 	}
 	//上一曲
 	prev.onclick = function(){
@@ -181,7 +185,53 @@ audio.addEventListener("timeupdate",function(){
 	}
 	
 	//歌词同步
+	var lrcCon = getId("lrcCon");
+	var txt = data[0].lrc;//保存歌词
 	
+	function currentLrc(){
+		var lrcArr = txt.split("[");
+		//console.log(lrcArr);
+		var html = '';
+		for (var i=0;i < lrcArr.length ;i++ )
+		{
+			var arr = lrcArr[i].split("]");
+			//console.log(arr);
+			var time = arr[0].split(".");
+			var timer = time[0].split(":");
+			//console.log(timer);
+			var ms = timer[0]*60 + timer[1]*1;//将时间转换为秒
+			//console.log(ms);
+			var text = arr[1];//歌词内容
+			if (text)
+			{
+				html += "<p id=gc"+ms+">"+text+"</p>"
+			}
+			lrcCon.innerHTML = html;
+		}
+		var sum = 0;
+		var curTime = 0;
+		var oP= lrcCon.getElementsByTagName("p");
+		audio.addEventListener("timeupdate",function(){
+			curTime = parseInt(this.currentTime);//获取当前播放的时间
+			//console.log(curTime);
+			if (document.getElementById("gc"+curTime))
+			{	
+				//console.log(document.getElementById("gc"+curTime));
+				for (var i=0;i<oP.length ;i++  )
+				{
+					oP[i].style.color = "#ccc";
+				}
+				document.getElementById("gc"+curTime).style.color = "#f00";
+				if (oP[8+sum].id == "gc"+curTime)
+				{
+					lrcCon.style.marginTop = 20-sum*20 + "px";
+					sum++;
+				}
+			}
+		});
+	}
+	currentLrc();
+
 	
 	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中
