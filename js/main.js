@@ -10,13 +10,14 @@ window.requestAnimationFrame = window.requestAnimationFrame ||
 
 							   
 window.onload = function(){
-	var oBtnPlay = getId("play")
+	var oBtnPlay = getId("play") 
 ,   prev = getId("prev")
 ,   next = getId("next")
 ,   love = getId("love")
 ,   download = getId("download")
 ,   song_title = getId("song_title")
 ,   song_author = getId("song_author")
+,   music_song_btn = getId("music_song_btn")
 ,   audio = getId("audio")
 ,   oLi = getId("menu_aside_content").getElementsByTagName("li")
 ,	mark = true
@@ -43,7 +44,7 @@ window.onload = function(){
 		}
 		mark = !mark;
 	}
-	
+
 	function switchPlay(n){
 		audio.src = data[n].src;
 		singer_pic.src = data[n].star;
@@ -67,12 +68,15 @@ window.onload = function(){
 	}
 	
 	//下一曲
-	next.onclick = function(){
+	function nextSong(){
 		n++;
 		if (n > 5) {
 			n = 0;
 		}
 		switchPlay(n);
+	}
+	next.onclick = function(){
+		nextSong();
 	}
 	
 	//音乐列表歌曲对应
@@ -83,6 +87,11 @@ window.onload = function(){
 			switchPlay(n);
 		}
 	}
+	//播放完成自动跳转到下一曲
+	audio.addEventListener("ended",function(){
+		nextSong();
+	},false)
+	
 	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中
 	analyser.connect(actx.destination); //将分析机制与目标点链接（扬声器）
@@ -124,4 +133,5 @@ window.onload = function(){
 function getId(idName){
 	return document.getElementById(idName);
 }
+
 
