@@ -30,6 +30,12 @@ window.onload = function(){
 ,   canvasColor //音普的渐变颜色
 ,   num = 100 // 限制绘制在canvas上的音普数量
 ,   n = 0 // 与Data数组数据挂钩
+,  	allTime = getId("allTime")
+,   curTime = getId("curTime") 
+,   pro_bar = getId("pro_bar") 
+,   pro_bar_bg = getId("pro_bar_bg")
+,   pro_bar_btn = getId("pro_bar_btn")
+,   progress_pencent
 ;
 
 	oBtnPlay.onclick = function(){
@@ -43,6 +49,7 @@ window.onload = function(){
 			this.style.backgroundImage = "url(images/playhover.png)";
 		}
 		mark = !mark;
+		allTime.innerHTML = time(audio.duration);
 	}
 
 	function switchPlay(n){
@@ -57,6 +64,7 @@ window.onload = function(){
 		love.setAttribute("class","iconfont music_func_item");
 		download.setAttribute("class","iconfont music_func_item");
 		singer_pic.className = "rorate";
+		load();
 	}
 	//上一曲
 	prev.onclick = function(){
@@ -92,46 +100,52 @@ window.onload = function(){
 		nextSong();
 	},false)
 	
+	//监听歌曲是否加载完成
+	
+	function load(){
+		audio.addEventListener("canplay",function (){
+			allTime.innerHTML = time(audio.duration);
+		},false);
+	}
 	
 //进度条
-// 当前播放时间
-var allTime = getId("allTime")
-,   curTime = getId("curTime") 
-,   pro_bar = getId("pro_bar") 
-,   pro_bar_bg = getId("pro_bar_bg")
-,   pro_bar_btn = getId("pro_bar_btn")
-;
 
-	//设置时间格式
-	function time(cTime) {
-		var cTime = parseInt(cTime);
-	//var h = zero(Math,floor(cTime/3600));
-	var m = zero(Math.floor(cTime%3600/60));
-	var s = zero(Math.floor(cTime%60));
-	return m + ":" + s;
+audio.addEventListener("timeupdate",function(){
+	nowTime();
+});
+
+	function nowTime(){
+		
+		curTime.innerHTML = time(audio.currentTime);
+		var n = audio.currentTime / audio.duration;
+		
+		pro_bar_btn.style.left = n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
+		pro_bar_bg.style.width =n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
 	}
 
-	//补零函数
-	function zero(num){
-		if(num < 10){
-			return "0" + num;
-	}else {
-		return " " + num;
+	//拖拽进度条
+	pro_bar_btn.onmousedown = function(e){
+		var e = e || window.event;
+		//鼠标按下的点距离滑块本身左边的距离 = 鼠标按下的地方 - 滑块距离左边距离
+		var x = e.clientX - this.offsetLeft; 
+		document.onmousemove = function(e){
+			var _left = e.clientX - x;//滑块距离左边的距离
+			if(_left <= 0){
+				_left = 0;
+			}else if (_left >=pro_bar.offsetWidth - pro_bar_btn.offsetWidth){
+				_left = pro_bar.offsetWidth - pro_bar_btn.offsetWidth;
+			}
+			pro_bar_btn.style.left = _left + "px";
+			pro_bar_bg.style.width = _left + "px";
+			progress_pencent = _left / (pro_bar.offsetWidth - pro_bar_btn.offsetWidth);
+			audio.currentTime = progress_pencent*audio.duration;
+			nowTime();
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
 		}
 	}
-	audio.addEventListener("timeupdate",function(){
-		nowTime(audio,curTime,pro_bar,pro_bar_btn,pro_bar_bg);
-	},false);
-
-	function nowTime(media_obj,currTime_obj,progress_a,progressBar_btn,progress_bg){
-		
-		currTime_obj.innerHTML = time(media_obj.currentTime);
-		var n = media_obj.currentTime / media_obj.duration;
-		
-		progressBar_btn.style.left = n*(progress_a.offsetWidth - progressBar_btn.offsetWidth) + "px";
-	progress_bg.style.width =20+n*(progress_a.offsetWidth - progressBar_btn.offsetWidth) + "px";
-	}
-
 
 	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中

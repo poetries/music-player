@@ -291,18 +291,26 @@ body {
 .progress {
 	margin-top: 15px;
 }
-.progress .pro_bar {
-	display: inline-block;
-	width: 250px;
-	height: 3px;
-	margin-left: 20px;
-	background: #bebebe;
+.progress .pro_bar1 {
+    display: inline-block;
+    width: 250px;
+    height: 3px;
+    margin-left: 20px;
+    background: #bebebe;
 }
-.progress .pro_bar .pro_bar_bg {
+.progress .pro_bar {
+    position: absolute;
+    top: 445px;
+    width: 250px;
+    height: 3px;
+    cursor: pointer;
+    margin-left: 72px;
+}
+.progress .pro_bar_bg {
 	display: block;
-	width: 40px;/*动态修改*/
-	height: 3px;
-	background: rgb(0,255,66);
+    height: 3px;
+    width: 30px;
+    background: rgb(0,255,66);
 }
 .progress .curTime {
 	float: left;
@@ -315,29 +323,14 @@ body {
 	margin-right: 8px;
 }
 .progress .pro_bar_btn {
-	display: block;
+    display: block;
     width: 6px;
     height: 6px;
     margin-top: -5px;
     background: url(../images/circle.gif);
+   	position: absolute;
 }
-/*.music_play {
-	margin-top: 15px;
-}
-.music_play .play .play_btn{
-	display: none;
-}
-.music_play .play .play_btn.active {
-	display: block;
-}
-.music_play span{
-	display: inline-block;
-	margin-left:69px;
-	cursor: pointer;
-}
-.music_play .prev {
-	margin-left: 91px;
-}*/
+
 .music_play {
 	text-align: center;
 }
