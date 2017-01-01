@@ -26,11 +26,15 @@ $(function(){
 		$("body").css({"background":"url("+picUrl+")"+" no-repeat"});
 	});
 	
-	//播放按钮样式
+	//爱心 音量 下载样式切换
 	$("#love").click(function(){
 		$(this).toggleClass("love");
 	});
-	$("#play").click(function(){
-		$(this).find(".play_btn").toggleClass("active");
+	$("#download").click(function(){
+		$(this).toggleClass("download");
 	});
+	$("#ylj").click(function(){
+		$(this).toggleClass("ylj");
+	});
+//	
 });

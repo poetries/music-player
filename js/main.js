@@ -13,6 +13,8 @@ window.onload = function(){
 	var oBtnPlay = getId("play")
 ,   prev = getId("prev")
 ,   next = getId("next")
+,   love = getId("love")
+,   download = getId("download")
 ,   song_title = getId("song_title")
 ,   song_author = getId("song_author")
 ,   audio = getId("audio")
@@ -27,30 +29,40 @@ window.onload = function(){
 ,   num = 100 // 限制绘制在canvas上的音普数量
 ,   n = 0 // 与Data数组数据挂钩
 ;
+
 	oBtnPlay.onclick = function(){
 		if(mark){
 			audio.play();
 			singer_pic.className = "rorate";
+			this.style.backgroundImage = "url(images/zanhover.png)";
 		}else {
 			audio.pause();
 			singer_pic.className = "";
+			this.style.backgroundImage = "url(images/playhover.png)";
 		}
 		mark = !mark;
 	}
 	
+	function switchSong(){
+		audio.src = data[n].src;
+		singer_pic.src = data[n].star;
+		song_title.innerHTML = data[n].name;
+		song_author.innerHTML = data[n].singer;
+		
+		//切换的时候更改样式
+		audio.play();
+		oBtnPlay.style.backgroundImage = "url(images/zanhover.png)";
+		love.setAttribute("class","iconfont music_func_item");
+		download.setAttribute("class","iconfont music_func_item");
+	}
 	//上一曲
 	prev.onclick = function(){
 		n--;
 		if (n < 0) {
 			n = data.length - 1;
 		}
-		audio.src = data[n].src;
-		singer_pic.src = data[n].star;
-		song_title.innerHTML = data[n].name;
-		song_author.innerHTML = data[n].singer;
-		audio.play();
+		switchSong();
 	}
-	
 	
 	//下一曲
 	next.onclick = function(){
@@ -58,19 +70,14 @@ window.onload = function(){
 		if (n > 5) {
 			n = 0;
 		}
-		audio.src = data[n].src;
-		singer_pic.src = data[n].star;
-		song_title.innerHTML = data[n].name;
-		song_author.innerHTML = data[n].singer;
-		audio.play();
-//		oBtnPlay.getElementsByTagName(i)[0]
+		switchSong();
 	}
 	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中
 	analyser.connect(actx.destination); //将分析机制与目标点链接（扬声器）
 	
 	//创建音普的渐变颜色
-	canvasColor = ctx.createLinearGradient(canvas.width*0.5,0,canvas.width*0.5,100); 
+	canvasColor = 	ctx.createLinearGradient(canvas.width*0.5,0,canvas.width*0.5,100); 
 	canvasColor.addColorStop(0,"#00f");
 	canvasColor.addColorStop(0.5,"#f00");
 	canvasColor.addColorStop(1,"#0f0");
