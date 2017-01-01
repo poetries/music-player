@@ -299,17 +299,16 @@ body {
     background: #bebebe;
 }
 .progress .pro_bar {
-    position: absolute;
+	position: absolute;
     top: 445px;
     width: 250px;
-    height: 3px;
     cursor: pointer;
-    margin-left: 72px;
+    left: 74px;
+    margin-top: -12px;
 }
 .progress .pro_bar_bg {
-	display: block;
+    display: inline-block;
     height: 3px;
-    width: 30px;
     background: rgb(0,255,66);
 }
 .progress .curTime {
@@ -323,12 +322,15 @@ body {
 	margin-right: 8px;
 }
 .progress .pro_bar_btn {
-    display: block;
+    display: inline-block;
     width: 6px;
     height: 6px;
-    margin-top: -5px;
-    background: url(../images/circle.gif);
-   	position: absolute;
+    background: #d05c5c;
+    left: 20px;
+    border-radius: 5px;
+    margin-left: -5px;
+    margin-top: 9px;
+
 }
 
 .music_play {

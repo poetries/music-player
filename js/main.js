@@ -137,7 +137,7 @@ audio.addEventListener("timeupdate",function(){
 			}
 			pro_bar_btn.style.left = _left + "px";
 			pro_bar_bg.style.width = _left + "px";
-			progress_pencent = _left / (pro_bar.offsetWidth - pro_bar_btn.offsetWidth);
+			progress_pencent = _left/(pro_bar.offsetWidth - pro_bar_btn.offsetWidth);
 			audio.currentTime = progress_pencent*audio.duration;
 			nowTime();
 		}
