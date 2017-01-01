@@ -142,7 +142,9 @@ body {
 	
 }
 .scrollText .singer{
-	margin-left: 100px;
+	position:absolute;
+	top:0;
+	right:25px;
 }
 .scrollText .song {
 	margin-left: 10px;
@@ -284,6 +286,7 @@ body {
     height: 6px;
     margin-top: -1px;
     background: url(../images/circle.gif);
+    cursor: pointer;
 } 
 .progress {
 	margin-top: 15px;

@@ -18,6 +18,7 @@ window.onload = function(){
 ,   song_title = getId("song_title")
 ,   song_author = getId("song_author")
 ,   audio = getId("audio")
+,   oLi = getId("menu_aside_content").getElementsByTagName("li")
 ,	mark = true
 ,   singer_pic = getId("singer_pic").getElementsByTagName("img")[0]
 ,   actx = new AudioContext() //创建音乐对象
@@ -43,7 +44,7 @@ window.onload = function(){
 		mark = !mark;
 	}
 	
-	function switchSong(){
+	function switchPlay(n){
 		audio.src = data[n].src;
 		singer_pic.src = data[n].star;
 		song_title.innerHTML = data[n].name;
@@ -54,6 +55,7 @@ window.onload = function(){
 		oBtnPlay.style.backgroundImage = "url(images/zanhover.png)";
 		love.setAttribute("class","iconfont music_func_item");
 		download.setAttribute("class","iconfont music_func_item");
+		singer_pic.className = "rorate";
 	}
 	//上一曲
 	prev.onclick = function(){
@@ -61,7 +63,7 @@ window.onload = function(){
 		if (n < 0) {
 			n = data.length - 1;
 		}
-		switchSong();
+		switchPlay(n);
 	}
 	
 	//下一曲
@@ -70,7 +72,16 @@ window.onload = function(){
 		if (n > 5) {
 			n = 0;
 		}
-		switchSong();
+		switchPlay(n);
+	}
+	
+	//音乐列表歌曲对应
+	for (var i = 0; i < oLi.length; i++) {
+		oLi[i].index = i;
+		oLi[i].onclick = function(){
+			n = this.index;
+			switchPlay(n);
+		}
 	}
 	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中
