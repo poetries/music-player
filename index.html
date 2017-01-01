@@ -9,9 +9,9 @@
 		<!--把这几个文件打包合并 todo-->
 		<script src="lib/jquery-3.1.0.min.js" ></script>
 		<script src="lib/html5shiv-printshiv.min.js" ></script>
+		<script src="js/tools.js" ></script>
 		<script src="js/scroll.js" ></script>
 		<script src="js/bg-menu.js" ></script>
-		<script src="js/progress.js" ></script>
 		<script src="data/data.js" ></script>
 		<script src="js/main.js" ></script>
 	</head>
@@ -118,12 +118,12 @@
 					</span>
 				</div>
 				<div class="progress">
-					<span class="curTime">00:00</span>
-					<span class="pro_bar">
-						<span class="pro_bar_bg"></span>
-						<a href="javascript:;" class="pro_bar_btn"></a>
+					<span class="curTime" id="curTime">00:00</span>
+					<span class="pro_bar" id="pro_bar">
+						<span class="pro_bar_bg" id="pro_bar_bg"></span>
+						<a href="javascript:;" class="pro_bar_btn" id="pro_bar_btn"></a>
 					</span>
-					<span class="allTime">00:00</span>
+					<span class="allTime" id="allTime">00:00</span>
 				</div>
 				<div class="music_play">
 					<span class="prev" id="prev"></span>

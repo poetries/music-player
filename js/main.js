@@ -93,6 +93,47 @@ window.onload = function(){
 	},false)
 	
 	
+//进度条
+// 当前播放时间
+var allTime = getId("allTime")
+,   curTime = getId("curTime") 
+,   pro_bar = getId("pro_bar") 
+,   pro_bar_bg = getId("pro_bar_bg")
+,   pro_bar_btn = getId("pro_bar_btn")
+;
+
+	//设置时间格式
+	function time(cTime) {
+		var cTime = parseInt(cTime);
+	//var h = zero(Math,floor(cTime/3600));
+	var m = zero(Math.floor(cTime%3600/60));
+	var s = zero(Math.floor(cTime%60));
+	return m + ":" + s;
+	}
+
+	//补零函数
+	function zero(num){
+		if(num < 10){
+			return "0" + num;
+	}else {
+		return " " + num;
+		}
+	}
+	audio.addEventListener("timeupdate",function(){
+		nowTime(audio,curTime,pro_bar,pro_bar_btn,pro_bar_bg);
+	},false);
+
+	function nowTime(media_obj,currTime_obj,progress_a,progressBar_btn,progress_bg){
+		
+		currTime_obj.innerHTML = time(media_obj.currentTime);
+		var n = media_obj.currentTime / media_obj.duration;
+		
+		progressBar_btn.style.left = n*(progress_a.offsetWidth - progressBar_btn.offsetWidth) + "px";
+	progress_bg.style.width =20+n*(progress_a.offsetWidth - progressBar_btn.offsetWidth) + "px";
+	}
+
+
+	
 	audioSrc.connect(analyser); //媒体源节点链接到分析机制中
 	analyser.connect(actx.destination); //将分析机制与目标点链接（扬声器）
 	
@@ -128,10 +169,7 @@ window.onload = function(){
 	}
 	
 	draw();
-}
-
-function getId(idName){
-	return document.getElementById(idName);
+	
 }
 
 
