@@ -1,4 +1,4 @@
-data/*.mp3
+src/data/*.mp3
 node_modules
-music
-NeteaseCloudMusicApi
+src/music
+src/NeteaseCloudMusicApi
