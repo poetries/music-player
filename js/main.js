@@ -47,6 +47,7 @@ window.onload = function(){
 	oBtnPlay.onclick = function(){
 		if(mark){
 			audio.play();
+			switchPlay(0);
 			singer_pic.className = "rorate";
 			this.style.backgroundImage = "url(images/zanhover.png)";
 		}else {
