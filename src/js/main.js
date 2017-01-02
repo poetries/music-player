@@ -283,6 +283,7 @@ audio.addEventListener("timeupdate",function(){
 	
 	draw();
 	
+	
 }
 
 
