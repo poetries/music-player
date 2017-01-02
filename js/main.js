@@ -40,6 +40,8 @@ window.onload = function(){
 ,   ylj = getId("ylj")
 ,   mutePro = getId("mutePro")
 ,   muteBar = getId("muteBar")
+,	lrcCon = getId("lrcCon")
+,	txt = data[0].lrc //保存歌词
 ;
 
 	oBtnPlay.onclick = function(){
@@ -56,11 +58,13 @@ window.onload = function(){
 		allTime.innerHTML = time(audio.duration);
 	}
 
+
 	function switchPlay(n){
 		audio.src = data[n].src;
 		singer_pic.src = data[n].star;
 		song_title.innerHTML = data[n].name;
 		song_author.innerHTML = data[n].singer;
+		txt = data[n].lrc;
 		
 		//切换的时候更改样式
 		
@@ -68,11 +72,10 @@ window.onload = function(){
 		love.setAttribute("class","iconfont music_func_item");
 		download.setAttribute("class","iconfont music_func_item");
 		singer_pic.className = "rorate";
-		lrcCon.style.marginTop = 20 + "px";
-		currentLrc();
 		load();
 		audio.play();
-		
+		lrcCon.style.marginTop = 20 + "px";
+		currentLrc();
 	}
 	//上一曲
 	prev.onclick = function(){
@@ -185,8 +188,6 @@ audio.addEventListener("timeupdate",function(){
 	}
 	
 	//歌词同步
-	var lrcCon = getId("lrcCon");
-	var txt = data[0].lrc;//保存歌词
 	
 	function currentLrc(){
 		var lrcArr = txt.split("[");
