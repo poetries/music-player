@@ -43,7 +43,7 @@ window.onload = function(){
 ,	lrcCon = getId("lrcCon")
 ,	txt = data[0].lrc //保存歌词
 ;
-
+	
 	oBtnPlay.onclick = function(){
 		if(mark){
 			audio.play();
@@ -56,6 +56,7 @@ window.onload = function(){
 		}
 		mark = !mark;
 		allTime.innerHTML = time(audio.duration);
+		
 	}
 
 	switchPlay(0);
@@ -152,7 +153,7 @@ audio.addEventListener("timeupdate",function(){
 
 	//拖拽进度条
 	pro_bar_btn.onmousedown = function(e){
-		alert(11);
+		//alert(11);
 		var e = e || window.event;
 		//鼠标按下的点距离滑块本身左边的距离 = 鼠标按下的地方 - 滑块距离左边距离
 		var x = e.clientX - this.offsetLeft; 
@@ -295,7 +296,29 @@ audio.addEventListener("timeupdate",function(){
 	
 	draw();
 	
+	//拖拽
+	var skin = getId("skin");
+	var music_song_content = getId("music_song_content");
 	
+	skin.onmousedown=function(){
+		document.onmousemove=moveDiv1;
+	}
+	skin.onmouseup=function(){
+		document.onmousemove=null;
+	}
+	function moveDiv1(e){
+		var e= e|| e.event;
+		var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+		var scrollLeft=document.body.scrollLeft||document.documentElement.scrollLeft;
+
+		skin.style.left=e.clientX-skin.offsetWidth/2+scrollLeft+"px";
+		skin.style.top=e.clientY-skin.offsetHeight/2+scrollTop+"px"
+	}
+	
+
+	
+	
+
 }
 
 
