@@ -19,7 +19,7 @@ window.onload = function(){
 ,   song_author = getId("song_author")
 ,   music_song_btn = getId("music_song_btn")
 ,   audio = getId("audio")
-,   oLi = getId("menu_aside_content").getElementsByTagName("li")
+,   oUl = getId("menu_aside_content")
 ,	mark = true
 ,   singer_pic = getId("singer_pic").getElementsByTagName("img")[0]
 ,   actx = new AudioContext() //创建音乐对象
@@ -98,7 +98,19 @@ window.onload = function(){
 		nextSong();
 	}
 	
+	//动态创建li歌曲列表
+	var str = "";
+	for (var i = 0;i < data.length;i++) {
+		str += "<li><span class=\"song\">"+data[i].name
+		+"</span><span class=\"singer\">"
+	+data[i].singer+"</span></li>";
+
+	}
+	oUl.innerHTML = str;
+	
+	
 	//音乐列表歌曲对应
+	var oLi = getId("menu_aside_content").getElementsByTagName("li");
 	for (var i = 0; i < oLi.length; i++) {
 		oLi[i].index = i;
 		oLi[i].onclick = function(){
@@ -222,7 +234,7 @@ audio.addEventListener("timeupdate",function(){
 				{
 					oP[i].style.color = "#ccc";
 				}
-				document.getElementById("gc"+curTime).style.color = "#f00";
+				document.getElementById("gc"+curTime).style.color = "rgb(119, 241, 12)";
 				if (oP[8+sum].id == "gc"+curTime)
 				{
 					lrcCon.style.marginTop = 20-sum*20 + "px";

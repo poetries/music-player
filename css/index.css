@@ -398,7 +398,8 @@ body {
 	overflow:hidden;
 }
 .m_lyric #lrcCon p{
-	text-align:center;
-	line-height:20px;
-	color:#ccc;
+    text-align: center;
+    line-height: 24px;
+    color: #ccc;
+    font-family: "微软雅黑";
 }
