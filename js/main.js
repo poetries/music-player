@@ -66,6 +66,10 @@ window.onload = function(){
 		song_author.innerHTML = data[n].singer;
 		txt = data[n].lrc;
 		
+		//音乐下载
+		download.setAttribute("href","music/"+data[n].name+".mp3");
+		download.setAttribute("download","music/"+data[n].name+".mp3");
+		
 		//切换的时候更改样式
 		
 		oBtnPlay.style.backgroundImage = "url(images/zanhover.png)";
@@ -195,11 +199,18 @@ audio.addEventListener("timeupdate",function(){
 			document.onmouseup = null;
 		}
 	}
+	var mark1 = true;
 	ylj.onclick = function(){
 		audio.volume = 0;
 		muteBar.style.width = "0px";
+		if(mark1){
+			ylj.innerHTML = "&#xe62d;";
+		}else {
+			ylj.innerHTML = "&#xe621;";
+		}
+		mark1 = !mark1;
 	}
-	
+
 	//歌词同步
 	
 	function currentLrc(){

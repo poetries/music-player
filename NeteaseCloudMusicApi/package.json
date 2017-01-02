@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "NeteaseCloudMusicApi",
+        "scope": null,
+        "escapedName": "NeteaseCloudMusicApi",
+        "name": "NeteaseCloudMusicApi",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "G:\\project\\music-player"
+    ]
+  ],
+  "_cnpm_publish_time": 1471601005961,
+  "_from": "NeteaseCloudMusicApi@latest",
+  "_id": "NeteaseCloudMusicApi@1.5.1",
+  "_inCache": true,
+  "_location": "/NeteaseCloudMusicApi",
+  "_nodeVersion": "6.3.1",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/NeteaseCloudMusicApi-1.5.1.tgz_1471601004875_0.8242658211383969"
+  },
+  "_npmUser": {
+    "name": "traveller",
+    "email": "zhuangtongfa@gmail.com"
+  },
+  "_npmVersion": "3.10.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "NeteaseCloudMusicApi",
+    "scope": null,
+    "escapedName": "NeteaseCloudMusicApi",
+    "name": "NeteaseCloudMusicApi",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/NeteaseCloudMusicApi/download/NeteaseCloudMusicApi-1.5.1.tgz",
+  "_shasum": "83b1a590eeb637f1c102a3f6bf0a0160e164c0e0",
+  "_shrinkwrap": null,
+  "_spec": "NeteaseCloudMusicApi",
+  "_where": "G:\\project\\music-player",
+  "author": {
+    "name": "traveller"
+  },
+  "dependencies": {
+    "request": "^2.72.0"
+  },
+  "description": "网易云音乐nodejs版接口模块",
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "83b1a590eeb637f1c102a3f6bf0a0160e164c0e0",
+    "size": 4957,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/NeteaseCloudMusicApi/download/NeteaseCloudMusicApi-1.5.1.tgz"
+  },
+  "keywords": [
+    "NeteaseCloudMusic",
+    "网易云音乐",
+    "网易云"
+  ],
+  "license": "MIT",
+  "main": "build/app.js",
+  "maintainers": [
+    {
+      "name": "traveller",
+      "email": "zhuangtongfa@gmail.com"
+    }
+  ],
+  "name": "NeteaseCloudMusicApi",
+  "optionalDependencies": {},
+  "publish_time": 1471601005961,
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "build": "babel src/ -d build/",
+    "test": "node test/test.js"
+  },
+  "version": "1.5.1"
+}

@@ -269,7 +269,9 @@ body {
 	color: #0086B3;	
 	cursor: pointer;
 }
-
+#download {
+	text-decoration: none;
+}
 .music_func .muteBar {
     background: #50f14f;
     width: 40px;
