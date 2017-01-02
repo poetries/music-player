@@ -75,8 +75,7 @@ body {
 	cursor: pointer;
 }
 .head .skin_btn {
-    float: right;
-    border-radius: 10px;
+	border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
     text-decoration: none;
@@ -84,6 +83,12 @@ body {
     background: rgba(143, 148, 150, 0.34);
     color: #fff;
     padding: 5px;
+
+}
+#skin{
+	position: absolute;
+    top: 30px;
+    left: 1100px;
 }
 .head .skin_btn .iconfont {
 	font-size: 24px;
