@@ -279,7 +279,6 @@ body {
 }
 .music_func .muteBar {
     background: #50f14f;
-    width: 40px;
     height: 4px;
     display: inline-block;
     position: absolute;
@@ -302,25 +301,23 @@ body {
 .progress {
 	margin-top: 15px;
 }
-.progress .pro_bar1 {
-    display: inline-block;
-    width: 250px;
-    height: 3px;
-    margin-left: 20px;
-    background: #bebebe;
-    position: relative;
-}
+
 .progress .pro_bar {
-    position: absolute;
-    top: 434px;
+    display: inline-block;
+    position: relative;
+    height: 3px;
+    margin-left: 14px;
+    background: #bebebe;
     width: 250px;
-    cursor: pointer;
-    left: 73px;
+    top: 0px;
 }
 .progress .pro_bar_bg {
     display: inline-block;
     height: 3px;
     background: rgb(0,255,66);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .progress .curTime {
 	float: left;
@@ -330,22 +327,27 @@ body {
 .progress .allTime {
 	float: right;
 	margin-top: 2px;
-	margin-right: 8px;
+	margin-right: 11px;
 }
 .progress .pro_bar_btn {
-    display: inline-block;
+	border-radius: 21px;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
     width: 8px;
     height: 8px;
+    display: inline-block;
     border-radius: 5px;
-    border-radius: 21px;
-    position: absolute;
-    bottom: -4px;
-    background: #fbf8f8;
     border: 2px solid #ada6a6;
+    background: #fbf8f8;
+    cursor: pointer;
 }
 
 .music_play {
-	text-align: center;
+    text-align: center;
+    margin-left: 96px;
+    width: 200px;
+    height: 50px;
 }
 .music_play .play {
     width: 58px;
