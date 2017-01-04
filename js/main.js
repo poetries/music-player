@@ -94,7 +94,7 @@ window.onload = function(){
 	//下一曲
 	function nextSong(){
 		n++;
-		if (n > 5) {
+		if (n > data.length - 1) {
 			n = 0;
 		}
 		switchPlay(n);
@@ -143,40 +143,37 @@ audio.addEventListener("timeupdate",function(){
 });
 
 	function nowTime(){
-		
-		curTime.innerHTML = time(audio.currentTime);
-		var n = audio.currentTime / audio.duration;
-		
-		pro_bar_btn.style.left = n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
-		pro_bar_bg.style.width =n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
+			
+			curTime.innerHTML = time(audio.currentTime);
+			var n = audio.currentTime / audio.duration;
+			
+			pro_bar_btn.style.left = n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
+			pro_bar_bg.style.width =n*(pro_bar.offsetWidth - pro_bar_btn.offsetWidth) + "px";
 	}
 
 	//拖拽进度条
-	pro_bar_btn.onmousedown = function(e){
-		//alert(11);
-		var e = e || window.event;
-		//鼠标按下的点距离滑块本身左边的距离 = 鼠标按下的地方 - 滑块距离左边距离
-		var x = e.clientX - this.offsetLeft; 
-		document.onmousemove = function(e){
-			var _left = e.clientX - x;//滑块距离左边的距离
-			var _width = pro_bar.offsetWidth - pro_bar_btn.offsetWidth; //能滑动的区域
-			
-			if(_left <= 0){
-				_left = 0;
-			}else if (_left >=_width){
-				_left = _width;
+	pro_bar_btn.onmousedown = function(ev){
+			var ev = ev || window.event;
+			var x = ev.clientX - this.offsetLeft;
+			document.onmousemove = function(ev){
+				var _left = ev.clientX - x;
+				if (_left <= 0)
+				{
+					_left = 0;
+				}else if(_left >= pro_bar.offsetWidth-pro_bar_btn.offsetWidth){
+					_left = pro_bar.offsetWidth-pro_bar_btn.offsetWidth;
+				}
+				pro_bar_btn.style.left = _left + "px";
+				pro_bar_bg.style.width = _left + "px";
+				var proN = _left/(pro_bar.offsetWidth-pro_bar_btn.offsetWidth);
+				//audio.currentTime = proN*audio.duration;
+				nowTime();
 			}
-			pro_bar_btn.style.left = _left+ + "px";
-			pro_bar_bg.style.width = _left + "px";
-			progress_pencent = _left/(pro_bar.offsetWidth - pro_bar_btn.offsetWidth);
-			audio.currentTime = progress_pencent*audio.duration;
-			nowTime();
+			document.onmouseup = function(){
+				document.onmousemove = null;
+				document.onmouseup = null;
+			}
 		}
-		document.onmouseup = function(){
-			document.onmousemove = null;
-			document.onmouseup = null;
-		}
-	}
 	
 	// 音量控制
 	muteBar_circle.onmousedown = function(ev){
@@ -191,6 +188,7 @@ audio.addEventListener("timeupdate",function(){
 				w = mutePro.offsetWidth-muteBar_circle.offsetWidth;
 			}
 			muteBar.style.width = w + "px";
+			muteBar_circle.style.left = w + "px";
 			var proN = w/(mutePro.offsetWidth-muteBar_circle.offsetWidth);
 			audio.volume = proN;
 			nowTime();
