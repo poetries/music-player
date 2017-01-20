@@ -98,12 +98,13 @@ body {
 /* song */
 .music {
     position: absolute;
-    top: 80px;
-    left: 430px;
+    top: 50%;
+    left: 50%;
     width: 390px;
     height: 500px;
     box-shadow: 0 0 10px #ccc;
     background: #fff;
+    transform: translateX(-50%) translateY(-50%);
 }
 /* 滚动条样式 */
 .music .menu .scrollCon {
