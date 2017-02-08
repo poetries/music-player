@@ -10,39 +10,38 @@ window.requestAnimationFrame = window.requestAnimationFrame ||
 
 							   
 window.onload = function(){
-	var oBtnPlay = getId("play") 
-,   prev = getId("prev")
-,   next = getId("next")
-,   love = getId("love")
-,   download = getId("download")
-,   song_title = getId("song_title")
-,   song_author = getId("song_author")
-,   music_song_btn = getId("music_song_btn")
-,   audio = getId("audio")
-,   oUl = getId("menu_aside_content")
-,	mark = true
-,   singer_pic = getId("singer_pic").getElementsByTagName("img")[0]
-,   actx = new AudioContext() //创建音乐对象
-,   analyser = actx.createAnalyser() //创建一个分析节点对象
-,   audioSrc = actx.createMediaElementSource(audio)  //创建媒体源节点
-,   canvas = getId("canvas")
-,   ctx = canvas.getContext("2d")
-,   canvasColor //音普的渐变颜色
-,   num = 100 // 限制绘制在canvas上的音普数量
-,   n = 0 // 与Data数组数据挂钩
-,  	allTime = getId("allTime")
-,   curTime = getId("curTime") 
-,   pro_bar = getId("pro_bar") 
-,   pro_bar_bg = getId("pro_bar_bg")
-,   pro_bar_btn = getId("pro_bar_btn")
-,   progress_pencent
-,   muteBar_circle = getId("muteBar_circle")
-,   ylj = getId("ylj")
-,   mutePro = getId("mutePro")
-,   muteBar = getId("muteBar")
-,	lrcCon = getId("lrcCon")
-,	txt = data[0].lrc //保存歌词
-;
+var oBtnPlay = getId("play"),
+	prev = getId("prev"),
+	next = getId("next"),
+	love = getId("love"),
+	download = getId("download"),
+	song_title = getId("song_title"),
+	song_author = getId("song_author"),
+	music_song_btn = getId("music_song_btn"),
+	audio = getId("audio"),
+	oUl = getId("menu_aside_content"),
+	mark = true,
+	singer_pic = getId("singer_pic").getElementsByTagName("img")[0],
+	actx = new AudioContext(), //创建音乐对象
+	analyser = actx.createAnalyser(), //创建一个分析节点对象
+	audioSrc = actx.createMediaElementSource(audio),  //创建媒体源节点
+	canvas = getId("canvas"),
+	ctx = canvas.getContext("2d"),
+	canvasColor, //音普的渐变颜色
+	num = 100, // 限制绘制在canvas上的音普数量
+	n = 0, // 与Data数组数据挂钩
+	allTime = getId("allTime"),
+	curTime = getId("curTime"),
+	pro_bar = getId("pro_bar"),
+	pro_bar_bg = getId("pro_bar_bg"),
+	pro_bar_btn = getId("pro_bar_btn"),
+	progress_pencent,
+	muteBar_circle = getId("muteBar_circle"),
+	ylj = getId("ylj"),
+	mutePro = getId("mutePro"),
+	muteBar = getId("muteBar"),
+	lrcCon = getId("lrcCon"),
+	txt;  //保存歌词
 	
 	oBtnPlay.onclick = function(){
 		if(mark){
@@ -55,7 +54,12 @@ window.onload = function(){
 			this.style.backgroundImage = "url(images/playhover.png)";
 		}
 		mark = !mark;
-		allTime.innerHTML = time(audio.duration);
+		//allTime.innerHTML = time(audio.duration);
+		if (audio.duration && typeof audio.duration!==NaN) {
+			allTime.innerHTML = time(audio.duration);
+		} else {
+			console.log("数据加载出错，状态是"+audio.duration);
+		}
 		
 	}
 
