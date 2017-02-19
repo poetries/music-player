@@ -1,0 +1,74 @@
+@charset "utf-8";
+.music {
+  .menu {
+    .scrollCon {
+      position: absolute;
+      top: 0px;
+      left: -281px;
+      width: 280px;
+      height: 500px;
+      display: none;
+      background: rgba(139,143,135,0.5);
+      overflow: hidden;
+    }
+  }
+}
+
+
+.scrollText {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 280px;
+  height: auto;
+  li {
+    position: relative;
+    text-indent: 22px;
+    line-height: 37px;
+    border-bottom: 1px dashed #666;
+    cursor: pointer;
+    font-family: "微软雅黑";
+    color: rgba(0, 0, 0, 0.89);
+    &:before {
+      content: "";
+      margin-top: 2px;
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 13px;
+      width: 5px;
+      height: 5px;
+      border-radius: 10px;
+      background-color: #9a3e3e;
+
+    }
+  }
+  .singer{
+    position:absolute;
+    top:0;
+    right:25px;
+  }
+  .song {
+    margin-left: 10px;
+  }
+}
+
+.scrollBar {
+  width: 10px;
+  height: 500px;
+  background: #000;
+  opacity: .7;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  .scrollBtn {
+    width: 10px;
+    height: 40px;
+    background: orangered;
+    opacity:.9;
+    position: absolute;
+    top:0px;
+    right: 0px;
+    cursor: pointer;
+  }
+}

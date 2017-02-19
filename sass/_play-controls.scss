@@ -1,0 +1,135 @@
+@charset "utf-8";
+.music_func {
+  margin-left: 19px;
+  margin-top: 30px;
+  .love {
+    color: #f00;
+  }
+  .music_func_item {
+    display: inline-block;
+    font-size: 26px;
+    margin-left: 63px;
+    .iconfont {
+      font-size: 24px;
+    }
+  }
+  .mutePro {
+    background: #ccc;
+    width: 35px;
+    height: 4px;
+    display: inline-block;
+    position: relative;
+    top: -7px;
+  }
+  .ylj,.download {
+    color: #0086B3;
+    cursor: pointer;
+  }
+  .muteBar {
+    background: #50f14f;
+    height: 4px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .mutePro {
+    .muteBar_circle {
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin-top: -1px;
+      cursor: pointer;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      background: #fbf8f8;
+      border: 2px solid #ada6a6;
+      border-radius: 34px;
+    }
+  }
+}
+
+#download {
+  text-decoration: none;
+}
+
+
+.progress {
+  margin-top: 15px;
+  .pro_bar {
+    display: inline-block;
+    position: relative;
+    height: 3px;
+    margin-left: 14px;
+    background: #bebebe;
+    width: 250px;
+    top: 0px;
+  }
+  .pro_bar_bg {
+    display: inline-block;
+    height: 3px;
+    background: rgb(0,255,66);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .curTime {
+    float: left;
+    margin-left: 11px;
+    margin-top: 2px;
+  }
+  .allTime {
+    float: right;
+    margin-top: 2px;
+    margin-right: 11px;
+  }
+  .pro_bar_btn {
+    border-radius: 21px;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 5px;
+    border: 2px solid #ada6a6;
+    background: #fbf8f8;
+    cursor: pointer;
+  }
+}
+
+
+.music_play {
+  text-align: center;
+  margin-left: 96px;
+  width: 200px;
+  height: 50px;
+  .play {
+    width: 58px;
+    height: 57px;
+    background: url(../images/play.png) 7px 10px no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    background-size: 58%;
+  }
+  .prev {
+    display: inline-block;
+    width: 40px;
+    height: 36px;
+    background: url(../images/houtui.png) 1px 0px no-repeat;
+    cursor: pointer;
+  }
+  .next {
+    background: url(../images/qianjin.png) 12px 1px no-repeat;
+    display: inline-block;
+    width: 40px;
+    height: 36px;
+    cursor: pointer;
+  }
+  span {
+    .iconfont {
+      font-size: 20px;
+    }
+  }
+}

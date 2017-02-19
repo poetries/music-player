@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.m_lyric {
+  width: 423px;
+  height: 498px;
+  float: left;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 0px;
+  margin-top: 3px;
+  h2{
+    height: 30px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    box-shadow: 0 0 5px #ddd;
+  }
+  #lrcCon {
+    margin-top:20px;
+    transition:0.5s linear;
+    p {
+      text-align: center;
+      line-height: 24px;
+      color: #ccc;
+      font-family: "微软雅黑";
+    }
+  }
+  .content {
+    height:370px;
+    overflow:hidden;
+  }
+}
